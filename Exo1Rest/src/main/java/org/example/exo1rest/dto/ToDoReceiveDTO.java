@@ -16,11 +16,11 @@ public class ToDoReceiveDTO {
     private String title;
     private String description;
     private String dueDateString;
-    private String isDoneString;
+    private String completedString;
 
 public ToDo dtoToEntity() {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     return ToDo.builder().title(getTitle()).description(getDescription())
-            .dueDate(LocalDate.parse(getDueDateString(), formatter)).isDone(Boolean.parseBoolean(getIsDoneString())).build(); // c'est moi qui ai fait ça ?
+            .dueDate(LocalDate.parse(getDueDateString(), formatter)).completed(Boolean.parseBoolean(getCompletedString())).build(); // c'est moi qui ai fait ça ?
 }
 }

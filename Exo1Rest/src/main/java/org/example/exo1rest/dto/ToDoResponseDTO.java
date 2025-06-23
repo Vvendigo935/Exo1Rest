@@ -17,7 +17,7 @@ public class ToDoResponseDTO {
     private String title;
     private String description;
     private LocalDate dueDate;
-    private boolean isDone;
+    private boolean completed;
 
 
 

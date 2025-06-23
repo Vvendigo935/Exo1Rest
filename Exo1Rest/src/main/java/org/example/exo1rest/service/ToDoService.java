@@ -43,23 +43,27 @@ private final ToDoRepository toDoRepository;
         toDofound.setTitle(todoGet.getTitle());
         toDofound.setDescription(todoGet.getDescription());
         toDofound.setDueDate(todoGet.getDueDate());
-        toDofound.setDone(todoGet.isDone());
+        toDofound.setCompleted(todoGet.isCompleted());
         return toDoRepository.save(toDofound).entityToDto();
     }
-    public List<ToDoResponseDTO> searchTaskDone() {
-        return toDoRepository
-                .findByDoneTrue()
-                .stream()
-                .map(ToDo::entityToDto)
-                .collect(Collectors.toList());
-    }
+//    public List<ToDoResponseDTO> searchTaskDone() {
+//        return toDoRepository
+//                .findByDoneTrue()
+//                .stream()
+//                .map(ToDo::entityToDto)
+//                .toList();
+//    }
+//
+//    public List<ToDoResponseDTO> searchTaskNotDone() {
+//        return toDoRepository
+//                .findByDoneFalse()
+//                .stream()
+//                .map(ToDo::entityToDto)
+//                .toList();
+//    }
 
-    public List<ToDoResponseDTO> searchTaskNotDone() {
-        return toDoRepository
-                .findByDoneFalse()
-                .stream()
-                .map(ToDo::entityToDto)
-                .collect(Collectors.toList());
+    public List<ToDoResponseDTO> findByCompleted (boolean completed) {
+        return toDoRepository.findByCompleted(completed).stream().map(ToDo::entityToDto).toList();
     }
 
 }

@@ -25,7 +25,7 @@ public class ToDo {
     private String title;
     private String description;
     private LocalDate dueDate;
-    private boolean isDone;
+    private boolean completed;
 
     public ToDoResponseDTO entityToDto (){
         return ToDoResponseDTO.builder()
@@ -33,11 +33,7 @@ public class ToDo {
                 .title(getTitle())
                 .description(getDescription())
                 .dueDate(getDueDate())
-                .isDone(false) // j'ai mis false par defaut
+                .completed(false) // j'ai mis false par defaut
                 .build();
     }
-
-
-
-
 }
