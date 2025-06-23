@@ -38,11 +38,10 @@ public ResponseEntity<ToDoResponseDTO> findById(@PathVariable Long id) {
     toDoService.delete(id);
     return ResponseEntity.ok(String.format("Deleted todo : %s", id));
 }
+@GetMapping
+    public ResponseEntity<List<ToDoResponseDTO>> findByComplete (@RequestParam boolean complete) {
+    return ResponseEntity.ok(toDoService.findByCompleted(complete));
+}
 
 
 }
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<String> delte(@PathVariable long id){
-//        service.delete(id);
-//        return ResponseEntity.ok(String.format("User at id : %s is deleted",id));
-//    }
